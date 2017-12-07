@@ -11,6 +11,7 @@ export default class Context extends Component {
   };
 
   static propTypes = {
+    /** Children are rendered without modification */
     children: PropTypes.node.isRequired
   };
 

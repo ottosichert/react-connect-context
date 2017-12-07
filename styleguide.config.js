@@ -7,6 +7,10 @@ module.exports = {
       componentName === "Context" ? componentName : `{ ${componentName} }`;
     return `import ${importName} from "react-connect-context";`;
   },
+  getExampleFilename: componentPath => {
+    const componentName = path.basename(componentPath, ".js");
+    return path.join(__dirname, "docs", `${componentName}.md`);
+  },
   sections: [
     {
       name: "Components",
@@ -17,10 +21,11 @@ module.exports = {
       sections: [
         {
           name: "@connect",
-          content: "src/connect.md"
+          content: "docs/connect.md"
         }
       ]
     }
   ],
+  showCode: true,
   title: "react-connect-context Documentation"
 };
