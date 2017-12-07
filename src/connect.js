@@ -16,7 +16,7 @@ export default (
   const mapContextToChildContextFunction =
     optionalMapContextToChildContext || noop;
 
-  const fromContext = WrappedComponent =>
+  const connectContext = WrappedComponent =>
     class FromContextWrapper extends Component {
       static childContextTypes = {
         context: PropTypes.object.isRequired
@@ -36,7 +36,7 @@ export default (
         mapContextToChildContext: mapContextToChildContextFunction
       };
 
-      static displayName = `FromContext(${WrappedComponent.name})`;
+      static displayName = `ConnectContext(${WrappedComponent.name})`;
 
       getChildContext() {
         const context = this.getContext();
@@ -77,6 +77,6 @@ export default (
     };
 
   return withArguments
-    ? fromContext
-    : fromContext(mapContextToPropsOrWrappedComponent);
+    ? connectContext
+    : connectContext(mapContextToPropsOrWrappedComponent);
 };

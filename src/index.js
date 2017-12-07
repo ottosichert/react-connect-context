@@ -1,2 +1,2 @@
 export { default } from "./Context";
-export { default as fromContext } from "./fromContext";
+export { default as connect } from "./connect";
