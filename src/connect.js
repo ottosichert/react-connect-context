@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 
-import { noop } from "./utils";
+import { getDisplayName, noop } from "./utils";
 
 export default (
   mapContextToPropsOrWrappedComponent,
@@ -36,7 +36,9 @@ export default (
         mapContextToChildContext: mapContextToChildContextFunction
       };
 
-      static displayName = `ConnectContext(${WrappedComponent.name})`;
+      static displayName = `ConnectContext(${getDisplayName(
+        WrappedComponent
+      )})`;
 
       getChildContext() {
         const { context } = this.context;
