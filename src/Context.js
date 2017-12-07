@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 import { Component } from "react";
 
-import { initial } from "Components/Context/utils/constants";
-
 export default class Context extends Component {
   static contextTypes = {
     context: PropTypes.object
@@ -13,19 +11,7 @@ export default class Context extends Component {
   };
 
   static propTypes = {
-    agbs: PropTypes.string,
-    children: PropTypes.node,
-    depositPrice: PropTypes.number,
-    flat: PropTypes.bool,
-    information: PropTypes.string,
-    listLevel: PropTypes.number,
-    markdown: PropTypes.object,
-    parks: PropTypes.object,
-    paymentOptions: PropTypes.object,
-    responsiveTables: PropTypes.bool,
-    size: PropTypes.string,
-    summary: PropTypes.string,
-    title: PropTypes.string
+    children: PropTypes.node.isRequired
   };
 
   getChildContext() {
@@ -38,7 +24,7 @@ export default class Context extends Component {
 
     return {
       context: {
-        ...(context || initial),
+        ...context,
         ...props
       }
     };

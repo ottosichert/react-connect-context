@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 
-import { initial } from "Components/Context/utils/constants";
-import { empty } from "Utils/functions";
+import { noop } from "./utils";
 
 export default (
   mapContextToPropsOrWrappedComponent,
@@ -12,11 +11,10 @@ export default (
     mapContextToPropsOrWrappedComponent &&
     mapContextToPropsOrWrappedComponent.prototype instanceof Component
   );
-  const mapContextToPropsFunction = withArguments
-    ? mapContextToPropsOrWrappedComponent || empty
-    : empty;
+  const mapContextToPropsFunction =
+    (withArguments && mapContextToPropsOrWrappedComponent) || noop;
   const mapContextToChildContextFunction =
-    optionalMapContextToChildContext || empty;
+    optionalMapContextToChildContext || noop;
 
   const fromContext = WrappedComponent =>
     class FromContextWrapper extends Component {
@@ -58,8 +56,7 @@ export default (
 
       getContext = () => {
         const { context } = this.context;
-
-        return context || initial;
+        return context;
       };
 
       render() {
