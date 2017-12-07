@@ -1,0 +1,9 @@
+{
+  "name": "react-connect-context",
+  "version": "0.0.1",
+  "description": "Get and manipulate React context in a convenient manner ",
+  "main": "lib/index.js",
+  "repository": "git@github.com:syn-marketing/react-connect-context.git",
+  "author": "SYN Marketing <kontakt@syn-marketing.de>",
+  "license": "MIT"
+}
