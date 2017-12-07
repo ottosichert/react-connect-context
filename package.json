@@ -9,8 +9,9 @@
   "scripts": {
     "build": "yarn run build:clean && babel src -d lib",
     "build:clean": "rimraf lib",
-    "lint": "eslint src",
-    "precommit": "lint-staged"
+    "lint": "eslint src test",
+    "precommit": "lint-staged",
+    "test": "mocha"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -19,13 +20,28 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-enzyme": "^1.0.0-beta.0",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
     "eslint": "^4.12.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.5.1",
     "husky": "^0.14.3",
+    "jsdom": "^11.5.1",
+    "jsdom-global": "^3.0.2",
     "lint-staged": "^6.0.0",
+    "mocha": "^4.0.1",
     "prettier": "^1.9.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "rimraf": "^2.6.2"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0"
   }
 }
