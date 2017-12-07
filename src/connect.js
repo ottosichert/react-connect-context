@@ -39,7 +39,7 @@ export default (
       static displayName = `ConnectContext(${WrappedComponent.name})`;
 
       getChildContext() {
-        const context = this.getContext();
+        const { context } = this.context;
         const {
           mapContextToProps, // eslint-disable-line no-unused-vars
           mapContextToChildContext,
@@ -54,13 +54,8 @@ export default (
         };
       }
 
-      getContext = () => {
-        const { context } = this.context;
-        return context;
-      };
-
       render() {
-        const context = this.getContext();
+        const { context } = this.context;
         const {
           mapContextToProps,
           mapContextToChildContext, // eslint-disable-line no-unused-vars
