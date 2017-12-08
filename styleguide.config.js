@@ -13,6 +13,19 @@ module.exports = {
   },
   sections: [
     {
+      name: "Introduction",
+      sections: [
+        {
+          name: "TL;DR",
+          content: "docs/tldr.md"
+        },
+        {
+          name: "Get started",
+          content: "docs/get-started.md"
+        }
+      ]
+    },
+    {
       name: "Components",
       components: "src/Context.js"
     },
@@ -26,6 +39,7 @@ module.exports = {
       ]
     }
   ],
+  require: [path.resolve(__dirname, "docs/setup.js")],
   showCode: true,
   title: "react-connect-context Documentation"
 };
